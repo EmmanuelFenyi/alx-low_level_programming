@@ -1,4 +1,4 @@
-#include "_putchar.h"
+#include "putchar.h"
 
 /**
  * main - Check description

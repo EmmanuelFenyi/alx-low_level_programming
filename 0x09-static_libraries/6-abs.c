@@ -1,3 +1,6 @@
+#!/bin/bash
+# include "stdlib"
+
 #include "main.h"
 
 /**

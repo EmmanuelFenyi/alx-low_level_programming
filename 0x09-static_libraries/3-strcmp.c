@@ -1,50 +1,14 @@
-#!/bin/bash
-#include "main.h"
-
 /**
- * _strcmp - a function that compares two strings.
- * @s1: an input string
- * @s2: an input string
- * Return: -15 if s1 < s2
- *           0 if s1 = s2
- *          15 if s1 > s2
+ * _strcmp - compares two strings, ending at the first byte that is different.
+ * @s1: string to be compared
+ * @s2: string to compare by
+ * Return: the difference between the first character that are not the same
  */
-
 int _strcmp(char *s1, char *s2)
 {
-	int s1len = 0, s2len = 0;
-	char *s1start = s1, *s2start = s2;
+	int i;
 
-	while (*s1)
-	{
-		s1len++;
-		s1++;
-	}
-
-	s1 = s1start;
-
-	while (*s2)
-	{
-		s2len++;
-		s2++;
-	}
-
-	s2 = s2start;
-
-	if (s1 > s2)
-		return (15);
-
-	else if (s1 < s2)
-		return (-15);
-
-	while (*s1)
-	{
-		if (*s1 < *s2)
-			return (-15);
-		if (*s1 > *s2)
-			return (15);
-		s1++;
-		s2++;
-	}
-	return (0);
+	for (i = 0; s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i]; i++)
+		;
+	return (s1[i] - s2[i]);
 }

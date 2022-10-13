@@ -1,13 +1,3 @@
-#Holberton School - 0x17-dynamic_libraries
-Compile dynamic Libraries.
-
-## New commands / functions used:
-1. ``mkdir libtobuild && cd libtobuild && cp ../files_to_find .`` - basic setup directory with all source.
-2. ``cp $(grep -F -f files_to_find $(find ~/holbertonschool-low_level_programming/ -type f -name "*.c") | grep -v -e "0x08" -e "0x17" -e "putchar" -e "main" | cut -d : -f1) .`` - Copies all C files found into the current working directory, with any of the prototypes found in the file: files_to_find. Excludes any files found with specific patterns.
-3. ``for f in *.c; do grep $(echo $f | cut -d '.' -f1 | cut -d '-' -f2)\( $f | sed 's|$|\;|'; done > holberton.h`` - Creates the header.
-4. ``gcc -Wall -Werror -Wextra -pedantic -g -fPIC *.c -shared -o libholberton.so`` - Creates the dynamic library.
-
-
 ## Description of Files
 ### Task 0:
 <h6>libholberton.so</h6>

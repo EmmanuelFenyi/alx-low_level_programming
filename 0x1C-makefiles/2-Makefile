@@ -1,11 +1,7 @@
-# Slightly less basic Makefile than number 1
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
 
-CC=gcc
-SRC=holberton.c main.c
-OBJ=$(SRC:.c=.o)
-NAME=holberton
-
-all: $(SRC) $(NAME)
-
-$(NAME): $(OBJ)
-	$(CC) -Wall -Werror -Wextra -pedantic $(OBJ) -o $@
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)

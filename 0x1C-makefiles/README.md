@@ -1,35 +1,85 @@
-#Holberton School - 0x1B-makefiles
-Introduction to make files
+# C - Makefiles
 
-## Prerequisites:
-* Ubuntu LTS 14.04
-* gcc v.4.8.4
-* GNU make v.3.81
+In this project, I practiced writing Makefiles.
 
-## New commands / functions used:
-``make``
+## Tests :heavy_check_mark:
 
-## Helpful Links
-* [Use files from here](https://github.com/holbertonschool/0x1B.c)
-* [Simple tutorial on make](http://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/)
-* [University course on makefiles](https://www.chemie.fu-berlin.de/chemnet/use/info/make/make_2.html)
-* [Youtube: Crash Course on Make](https://www.youtube.com/watch?v=_r7i5X0rXJk)
-* [GNU Make](https://ftp.gnu.org/old-gnu/Manuals/make-3.79.1/html_chapter/make_6.html)
+* [tests](./tests): Folder of test files.
 
-## Description of Files
-<h6>0-Makefile</h6>
-Makes an executable called holberton. Rules: all, variables: none
+## Helper Files :raised_hands:
 
-<h6>1-Makefile</h6>
-Makes an executable called holberton. Rules: all which builds your executable, variables: CC (compiler to be used) and SRC (the .c files)
+* [school.c](./school.c): C function that displays a seahorse in text.
+Used for Makefile practice purposes throughout project.
 
-<h6>2-Makefile</h6>
-The first useful makefile. Rules: all -builds executable, variables: CC (compiler), SRC(all the .c files), OBJ(all the .o files), NAME (name of the executable). Make sure to delete the .o files after compilation is finished.
+* [main.c](./main.c): Main C function that runs the function defined in
+[school.c](./school.c).
 
-<h6>3-Makefile</h6>
+## Header File :file_folder:
 
-<h6>4-Makefile</h6>
+* [m.h](./m.h): Header file defining the function prototype used in `school.c`.
 
+## Tasks :page_with_curl:
 
-<h6>100-Makefile</h6>
+* **0. make -f 0-Makefile**
+  * [0-Makefile](./0-Makefile): Makefile that creates an executable `school` based on
+  [school.c](./school.c) and [main.c](./main.c). Includes:
+    * Rule `all` that builds the executable.
 
+* **1. make -f 1-Makefile**
+  * [1-Makefile](./1-Makefile): Makefile that creates an executable `school` based on
+  [school.c](./school.c) and [main.c](./main.c). Builds on [0-Makefile](./0-Makefile)
+  with:
+    * Variable `CC` that defines the compiler to be used.
+    * Variable `SRC` that defines the `.c` files to compile.
+    * The `all` rule only recompiles updated source files.
+
+* **2. make -f 2-Makefile**
+  * [2-Makefile](./2-Makefile): Makefile that creates an executable `school` based on
+  [school.c](./school.c) and [main.c](./main.c). Builds on [1-Makefile](./1-Makefile)
+  with:
+    * Variable `OBJ` that defines the `.o` files to compile.
+    * Variable `NAME` that defines the name of the executable.
+
+* **3. make -f 3-Makefile**
+  * [3-Makefile](./3-Makefile): Makefile that creates an executable `school` based on
+  [school.c](./school.c) and [main.c](./main.c). Builds on [2-Makefile](./2-Makefile)
+  with:
+    * Rule `clean` that deletes all Emacs/Vim temporary files as well as the
+    executable.
+    * Rule `oclean` that deletes the object files.
+    * Rule `fclean` that deltes all of the temporary files, executable, and
+    object files.
+    * Rule `re` that forces recompilation of all source files.
+    * Variable `RM` that defines the command to delete files.
+
+* **4. A complete Makefile**
+  * [4-Makefile](./4-Makefile): Makefile that creates an executable `school` based on
+  [school.c](./school.c) and [main.c](./main.c). Builds on [3-Makefile](./3-Makefile)
+  with:
+    * Variable `CFLAGS` that defines the compiler flags `-Wall -Werror -Wextra
+    -pedantic`.
+
+* **5. Island Perimeter**
+  * [5-island_perimeter.py](./5-island_perimeter.py): Python function that returns the
+  perimeter of an island defined in a grid.
+  * Prototype: `def island_perimeter(grid):`
+  * The parameter `grid` is a list of a list of integers.
+    * Water is represented by `0`.
+    * Land is represented by `1`.
+    * Each element of the lists represents a cell square of side length 1.
+    * Grid cells are connected horizontally/verticaly (not diagonally).
+    * The grid is rectangular, with a width and height not exceeding 100.
+    * The grid is completely surrounded by water, and there is either exactly
+    one island or nothing.
+    * The island does not contain lakes (water inside disconnected from
+    surrounding land).
+
+* **6. make -f 100-Makefile**
+  * [100-Makefile](./100-Makefile): Makefile that creates an executable `school` based on
+  [school.c](./school.c) and [main.c](./main.c). Builds on [4-Makefile](./4-Makefile)
+  with:
+    * Does not define the variable `RM`.
+    * Never uses the string `$(CFLAGS)`.
+    * Does not compile if the header `m.h` is missing.
+    * Works even if there are existing files of the same name as any of the
+    Makefile rules in the current directory.

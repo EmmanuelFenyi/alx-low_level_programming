@@ -1,18 +1,18 @@
-# Basic makefile
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+RM = rm -f
 
-CC=gcc
-SRC=holberton.c main.c
-OBJ=$(SRC:.c=.o)
-NAME=holberton
-RM=rm -f
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
 
-all: $(SRC) $(NAME)
-$(NAME): $(OBJ)
-	$(CC) -Wall -Werror -Wextra -pedantic $(OBJ) -o $@
 clean:
-	$(RM) *~ $(NAME) 
-fclean:
-	$(RM) *~ $(NAME) $(OBJ)	
+	$(RM) *~ $(NAME)
+
 oclean:
 	$(RM) $(OBJ)
-re: oclean all
+
+fclean: clean oclean
+
+re: fclean all
